@@ -4,10 +4,9 @@ WORKDIR /usr
 
 RUN yum install -y wget tar gzip
 
-RUN wget -q https://github.com/oracle/graal/releases/download/vm-1.0.0-rc12/graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz && tar xzf graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz
+RUN wget -q https://github.com/oracle/graal/releases/download/vm-1.0.0-rc12/graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz && tar xzf graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz && rm graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz
 
-ENV GRAALVM_PKG=/usr/graalvm-ce-1.0.0-rc12-linux-amd64.tar.gz \
-    JAVA_HOME=/usr/graalvm-ce-1.0.0-rc12/jdk \
+ENV JAVA_HOME=/usr/graalvm-ce-1.0.0-rc12/jdk \
     PATH=/usr/graalvm-ce-1.0.0-rc12/bin:$PATH
 
 # ADD $GRAALVM_PKG /usr/
